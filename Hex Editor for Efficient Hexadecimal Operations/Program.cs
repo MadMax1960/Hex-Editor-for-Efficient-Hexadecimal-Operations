@@ -9,8 +9,15 @@ namespace CPKModifier
 	{
 		static void Main(string[] args)
 		{
-			string folderPath;
-			string jsonFileName = "default.json"; // Default JSON file name
+			if (args.Length < 1 || args.Length > 2)
+			{
+				Console.WriteLine("Usage: Hex Editor for Efficient Hexadecimal Operations.exe [filepath] [json name]");
+				Console.WriteLine("You can drag and drop a file or folder onto the exe as well; it will use default.json for replacement if you do.");
+				return;
+			}
+
+			string folderPath = args[0];
+			string jsonFileName = args.Length > 1 ? args[1] : "default.json"; // Default JSON file name
 
 			if (args.Length > 0)
 			{
@@ -113,7 +120,7 @@ namespace CPKModifier
 				Console.WriteLine($"Processed: {Path.GetFileName(filePath)}");
 			}
 
-			Console.WriteLine("Modification complete.");
+			Console.WriteLine("Your hees have been hoed.");
 		}
 	}
 
